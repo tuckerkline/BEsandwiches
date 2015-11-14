@@ -1,0 +1,28 @@
+<div class = "jumbotron">
+<h2>Add a sandwich!</h2>
+<form class = "mainForm"  ng-submit = "submitSandwich()">
+  <div class="form-group">
+    <label for="sandwichName">Sandwich Name:</label>
+    <input type="text" class="form-control" id="sandwichName" placeholder="BLT with attitude" ng-model = "newSandwich.name">
+  </div>
+  <div class="form-group">
+
+  <label>Ingredients:</label><br> 
+  <div class = "form-group">
+  <input type="text" class = "form-control" ng-model="newSandwich.ingredients" placeholder="Seperate, by, commas,"/>
+  </div>
+ 
+  <label for="recipe"><strong>Recipe:</strong></label>
+  	<textarea class="form-control" rows="3" placeholder="It's a BLT. With Attitude." ng-model = "newSandwich.recipe"></textarea>
+  	</div>
+
+
+ 
+  <label for ="pic">Upload a picture with a URL (required):</label>
+  <input ng-model = "newSandwich.picture">
+  <br>
+  <img ng-src="{{ picURL }}" ng-show = "showPic">
+  <br>
+  <input class = "btn btn-default" type = "submit">
+</form>
+</div>

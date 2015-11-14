@@ -1,0 +1,17 @@
+<h1>All Sandwiches</h1>
+
+
+
+<ul ng-repeat = "(sandwichIndex, sandwich) in sandwiches | orderBy: 'name'">
+<div class = "jumbotron">	
+<li> <h3> {{sandwich.name}} </h3>  <br>
+Ingredients: 
+<ul ng-repeat = "(ingredientIndex, ingredient) in sandwich.ingredients track by ingredientIndex">
+<a href="/#/selectedIngredient" ng-model = 'selectedIng'><li> -{{ ingredient }} </li></a>
+</ul>
+<br>
+Recipe:  {{sandwich.recipe}} <br><br>
+<img class = "sandwichPic" ng-src = "{{ sandwich.picture }}"> <br> <br>
+
+</div>
+

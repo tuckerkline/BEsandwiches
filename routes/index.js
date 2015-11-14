@@ -4,6 +4,7 @@ var bcrypt = require('bcryptjs')
 var passport = require('passport')
 
 var User = require('../models/users.js')
+var Sandwich = require('../models/sandwiches.js')
 
 
 /* GET home page. */
@@ -51,6 +52,26 @@ router.get('/logout', function(req, res){
 router.get('/me', function(req, res) {
     console.log(req.user)
     res.send(req.user)
+})
+
+router.post('/sandwichAdd', function(req, res) {
+    var newSandwich = new Sandwich({
+        name        : req.body.name,
+        ingredients : req.body.ingredients,
+        recipe      : req.body.recipe,
+        picture     : req.body.picture
+    })
+    newSandwich.save(function(err, doc) {
+        res.send(doc)
+    })
+    
+})
+
+router.get('/allsandwiches', function(req, res) {
+    Sandwich.find({}).exec(function(err, docs) {
+        res.send(docs)
+        console.log(docs)
+    })
 })
 
 module.exports = router;
