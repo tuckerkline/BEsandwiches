@@ -135,10 +135,21 @@ angular.module('sandwichApp')
 
         $scope.submitSandwich = function() {
             $scope.newSandwich.ingredients = $scope.newSandwich.ingredients.split(',')
+            
+ 
+
+
             $http.post('/sandwichAdd', $scope.newSandwich)
                 .then(function(returnData){
                     console.log(returnData)
                 })
+
+
+                // $scope.newSandwich.name = ""
+                // $scope.newSandwich.recipe = ""
+                // $scope.newSandwich.ingredients = ""
+                // $scope.newSandwich.picture = ""
+
             // console.log('hi')
             // console.log($scope.newSandwich)
         }
@@ -170,11 +181,10 @@ angular.module('sandwichApp')
             method : 'GET',
             url    : '/allsandwiches',
         }).then(function(returnData) {
-            console.log(returnData)
+            // console.log(returnData)
             $scope.sandwiches = returnData.data
         })
 
-        console.log($scope.sandwiches)
 
 
     }])

@@ -46,6 +46,11 @@ a {
 	text-align: right;	
 }
 
+.addIcon {
+	height: 45px; 
+	padding-top: 15px;
+}
+
 .champ {
 	text-align: center;
 
