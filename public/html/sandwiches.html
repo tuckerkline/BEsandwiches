@@ -2,9 +2,10 @@
 
 
 
-<ul ng-repeat = "(sandwichIndex, sandwich) in sandwiches | orderBy: 'name'">
+<ul ng-repeat = "(sandwichIndex, sandwich) in sandwiches">
 <div class = "jumbotron">	
 <li> <h3> {{sandwich.name}} </h3>  <br>
+Created by: {{sandwich.creator}} <br>
 Ingredients: 
 <ul ng-repeat = "(ingredientIndex, ingredient) in sandwich.ingredients track by ingredientIndex">
 <a ng-click = "ingredientSelect(ingredientIndex, sandwichIndex)"><li> -{{ ingredient }} </li></a>

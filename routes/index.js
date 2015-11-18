@@ -59,7 +59,8 @@ router.post('/sandwichAdd', function(req, res) {
         name        : req.body.name,
         ingredients : req.body.ingredients,
         recipe      : req.body.recipe,
-        picture     : req.body.picture
+        picture     : req.body.picture,
+        creator     : req.user.username
     })
     newSandwich.save(function(err, doc) {
         res.send(doc)
