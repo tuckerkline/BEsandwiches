@@ -140,7 +140,7 @@ angular.module('sandwichApp')
                     console.log(returnData)
                 })
 
-                location.reload()
+                // location.reload()
 
 
 
