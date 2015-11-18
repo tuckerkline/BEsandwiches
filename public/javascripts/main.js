@@ -140,6 +140,11 @@ angular.module('sandwichApp')
                     console.log(returnData)
                 })
 
+                location.reload()
+
+
+
+
 
                 // $scope.newSandwich.name = ""
                 // $scope.newSandwich.recipe = ""
