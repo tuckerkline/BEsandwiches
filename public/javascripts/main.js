@@ -33,6 +33,10 @@ angular.module('sandwichApp')
                 templateUrl : '/html/sandwiches.html',
                 controller  : 'sandwichesController'
             })
+            .when('/profile', {
+                templateUrl : '/html/profile.html',
+                controller  : 'profileController'
+            })
             
 
 	}])
@@ -87,6 +91,8 @@ angular.module('sandwichApp')
                 .then(function(){
                     $location.url('/')
                 })
+
+                location.reload()
 
         }
 
@@ -215,4 +221,42 @@ angular.module('sandwichApp')
 
 
     }])
+
+
+    angular.module('sandwichApp')
+    .controller('profileController', ['$scope', '$rootScope', '$http', '$location', 'authService', function($scope, $rootScope, $http, $location, authService) {
+
+        authService.authCheck(function(user) {
+            // console.log(user)
+            if (!user) {
+                // console.log('no user, dude')
+                $location.url('/')
+            } else {
+                 $scope.user = user
+                 $rootScope.user = $scope.user
+
+            }
+        })
+
+        $http({
+            method : 'GET',
+            url    : '/allsandwiches',
+        }).then(function(returnData) {
+            // console.log(returnData)
+            $scope.sandwiches = returnData.data
+        })
+
+        // $scope.userSandwiches = []
+
+        // for ( var i = 0; i < $rootScope.sandwiches.length; i++ ) {
+        //     if ($rootScope.sandwiches[i].creator === $rootScope.user.username) {
+        //         $scope.userSandwiches.push($rootScope.sandwiches[i])
+        //     }
+        // }
+
+        console.log($scope.sandwiches)
+
+
+    }])
+
 
