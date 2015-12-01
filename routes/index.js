@@ -75,4 +75,13 @@ router.get('/allsandwiches', function(req, res) {
     })
 })
 
+router.post('/commentadd', function (req, res) {
+    Sandwich.findOneAndUpdate({ name : req.body.name}, req.body, function(error, data) {
+        console.log(data)
+    Sandwich.findOne({ name : req.body.name}, function(error, data) {
+        res.send(data)
+    })
+    })
+})
+
 module.exports = router;

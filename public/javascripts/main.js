@@ -218,6 +218,18 @@ angular.module('sandwichApp')
 
         }
 
+        $scope.addComment = function(sandwich) {
+            sandwich.comments.push(sandwich.addedComment)
+            $http({
+                method : 'POST',
+                url    : '/commentadd',
+                data   : sandwich
+            }).then(function(returnData) {
+                //xxx
+            })
+            sandwich.addedComment = ""
+        }
+
 
 
     }])

@@ -13,7 +13,15 @@ Ingredients:
 <br>
 Recipe:  {{sandwich.recipe}} <br><br>
 <img class = "sandwichPic" ng-src = "{{ sandwich.picture }}"> <br> <br>
-
+<form class = 'mainForm' ng-submit = 'addComment(sandwich)'>
+<h4>Comments</h4>
+<ul ng-repeat = "comment in sandwich.comments">
+<li> {{comment}} </li>
+</ul>
+<br>
+<textarea class = 'form-control' placeholder = 'Add your comment to this sandwich' ng-model = "sandwich.addedComment"></textarea>
+<input class = 'btn btn-default' type = 'submit'>
+</form>
 </div>
 
 <div ng-show = "showByIngredient" class = "sandwichPopup">
